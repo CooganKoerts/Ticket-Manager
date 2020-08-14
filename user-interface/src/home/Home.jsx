@@ -1,4 +1,4 @@
-import React from '../../node_modules/@types/react';
+import React from 'react';
 
 const Home = () => {
    return <div> HOME </div>

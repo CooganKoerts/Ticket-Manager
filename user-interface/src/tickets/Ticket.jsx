@@ -1,7 +1,13 @@
-import React from '../../node_modules/@types/react';
+import React, { Component } from 'react';
+import { getTickets } from '../helpers/Api';
 
-const Tickets = () => {
-    return <div> Tickets </div>
+class Tickets extends Component {
+    async componentWillMount() {
+        console.log(getTickets())
+    }
+    render() {
+        return <div> Tickets </div>
+    }
 }
 
 export default Tickets;
