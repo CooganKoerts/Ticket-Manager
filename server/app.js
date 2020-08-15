@@ -1,14 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const dotenv = require('dotenv').config();
+
 const ticketRoutes = require('./routes/ticketRoutes');
 
 const Ticket = require('./models/ticket');
 
 const app = express();
-
-// TODO: hide user & pw
-const dbURI = 'mongodb+srv://ticket-user:3Lhbsyq6tf1Zcq1s@cluster0.zros3.mongodb.net/ticket-manager?retryWrites=true&w=majority';
+const dbURI = process.env.DB_URI;
 
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
