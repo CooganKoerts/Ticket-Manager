@@ -16,4 +16,8 @@ router.get('/tickets', (req, res) => {
         })
 });
 
+router.post('/tickets', (req, res) => {
+    
+})
+
 module.exports = router;
