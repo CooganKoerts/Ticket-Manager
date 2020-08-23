@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const dotenv = require('dotenv').config();
 
 const ticketRoutes = require('./routes/ticketRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
@@ -19,8 +20,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
     res.locals.path = req.path;
-    console.log(req.path);
     next();
 })
 
 app.use('/', ticketRoutes);
+
+app.use('/', userRoutes);
