@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const passport = require('../helpers/passport');
 
 const router = express.Router();
 
@@ -38,6 +39,12 @@ router.post('/register', (req, res) => {
             });
         }
     })
+});
+
+router.post('/login', (req, res, next) => {
+    passport.authenticate('local',
+        () => { console.log('Hello')} 
+    );
 });
 
 module.exports = router;
