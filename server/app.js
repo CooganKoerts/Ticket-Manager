@@ -4,9 +4,6 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const dotenv = require('dotenv').config();
 
-const passport = require('passport');
-require("./helpers/passport")(passport);
-
 const ticketRoutes = require('./routes/ticketRoutes');
 const userRoutes = require('./routes/userRoutes');
 
@@ -21,14 +18,11 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use((req, res, next) => {
     res.locals.path = req.path;
     next();
-})
-
-app.use('/', ticketRoutes);
+});
 
 app.use('/', userRoutes);
+app.use('/', ticketRoutes);
