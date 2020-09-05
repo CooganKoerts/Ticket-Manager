@@ -3,7 +3,8 @@ const Ticket = require('../models/ticket');
 
 const router = express.Router();
 
-router.get('/tickets', (req, res) => {
+router.get('/', (req, res) => {
+    console.log('Tickets');
     Ticket.find().sort({ createdAt: -1 })
         .then((result) => {
             res.send(result);
@@ -14,7 +15,7 @@ router.get('/tickets', (req, res) => {
         })
 });
 
-router.post('/tickets', (req, res) => {
+router.post('/', (req, res) => {
     const ticket = new Ticket(req.body);
 
     ticket.save()
@@ -27,7 +28,7 @@ router.post('/tickets', (req, res) => {
         })
 });
 
-router.get('/tickets/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const id = req.params.id;
 
     Ticket.findById(id)
@@ -40,7 +41,7 @@ router.get('/tickets/:id', (req, res) => {
         });
 });
 
-router.delete('/tickets/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const id = req.params.id;
 
     console.log('DELETE');

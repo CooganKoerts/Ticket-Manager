@@ -25,4 +25,4 @@ app.use((req, res, next) => {
 });
 
 app.use('/', userRoutes);
-app.use('/', ticketRoutes);
+app.use('/tickets', ticketRoutes);
