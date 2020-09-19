@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, Link, Switch, BrowserRouter as Router } from '../node_modules/react-router-dom'
-import Home from './home/Home';
-import Projects from './projects/Projects';
-import Tickets from './tickets/Ticket';
-import NotFound from './not-found/NotFound'
+import Projects from './pages/projects/Projects';
+import Tickets from './pages/tickets/Ticket';
+import NotFound from './pages/not-found/NotFound'
+import LandingPage from './pages/landingPage/LandingPage';
 
 function App() {
   return (
     <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={LandingPage} />
           <Route path="/Tickets" component={Tickets} /> 
           <Route path="/Projects" component={Projects} />
           <Route component={NotFound} />

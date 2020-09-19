@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getTickets } from '../helpers/Api';
+import { getTickets } from '../../helpers/Api';
 
 class Tickets extends Component {
     async componentWillMount() {
