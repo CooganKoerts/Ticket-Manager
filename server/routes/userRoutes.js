@@ -13,7 +13,7 @@ router.post('/register', async (req, res) => {
     try {
         const user = await User.create({ firstName, lastName, email, userName, password });
         const token = createToken(user._id);
-        res.cookie('jwt', token, { http: true, maxAge: TOKEN_MAX_AGE * 1000});
+        res.cookie('access-validation-id', token, { http: true, maxAge: TOKEN_MAX_AGE * 1000});
         res.status(201).json({ user: user._id });
     } catch (err) {
         const errors = handleErrors(err);
@@ -27,7 +27,7 @@ router.post('/login', async (req, res, next) => {
     try {
         const user = await User.login(email, password);
         const token = createToken(user._id);
-        res.cookie('jwt', token, { httpOnly: true, maxAge: TOKEN_MAX_AGE * 1000 });
+        res.cookie('access-validation-id', token, { httpOnly: true, maxAge: TOKEN_MAX_AGE * 1000 });
         res.status(200).json({ user: user });
     } catch (err) {
         const errors = handleErrors(err);
