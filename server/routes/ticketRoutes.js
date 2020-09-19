@@ -4,7 +4,6 @@ const Ticket = require('../models/ticket');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    console.log('Tickets');
     Ticket.find().sort({ createdAt: -1 })
         .then((result) => {
             res.send(result);
@@ -43,8 +42,6 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     const id = req.params.id;
-
-    console.log('DELETE');
 
     Ticket.findByIdAndDelete(id)
         .then(result => {

@@ -1,21 +1,26 @@
 const jwt = require('jsonwebtoken');
 
 const requireAuth = (req, res, next) => {
-    const token = req.cookies.token;
+    const { cookies } = res;
 
-    if (token) {
-        console.log('TOKEN EXISTS');
-        jwt.verify(token, 'koert\'s secret', (err, decodedToken) => {
-            if (err) {
-                console.log('ERROR');
-            } else {
-                console.log('SUCCESS');
-                console.log(decodedToken);
-                next();
-            }
-        });
-    } else {
-        console.log('NO TOKEN');
+    try {
+        if (cookies && cookies.token) {
+            const token = cookies.token;
+            jwt.verify(token, 'access-validation-id', (err, decodedToken) => {
+                if (err) {
+                    res.status(500);
+                    throw Error(err.message)
+                } else {
+                    next();
+                }
+            });
+        } else {
+            res.status(401)
+            throw Error('No Token - Unauthorized access');
+        }        
+    } catch (err) {
+        res.status(res.statusCode || 500);
+        res.send(err.message);
     }
 };
 
