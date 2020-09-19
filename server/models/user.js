@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const { isEmail } = require('validator');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -13,6 +15,9 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
+        lowercase: true,
+        validate: [isEmail, 'Please enter a valid email']
     },
     userName: {
         type: String,
@@ -20,9 +25,17 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
-        required: true,
+        required: [true, 'Please enter a password'],
+        minlength: [6, 'Minimum password length is 6 characters'],
     }
 }, { timestamps: true });
+
+// this function will fire before doc is saved to db
+userSchema.pre('save', async function(next) {
+    const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
 
 const User = mongoose.model('User', userSchema);
 

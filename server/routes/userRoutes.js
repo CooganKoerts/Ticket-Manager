@@ -1,43 +1,35 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 const router = express.Router();
 
-router.post('/register', (req, res) => {
+const handleErrors = (err) => {
+    console.log('ERROR, hey there is an error');
+    console.log(err);
+
+    return { coogan: err }
+}
+
+const maxAge = 3 * 24 * 60 * 60;
+const createToken = (id) => {
+    return jwt.sign({ id }, 'server secret', {
+        expiresIn: maxAge
+    });
+};
+
+router.post('/register', async (req, res) => {
     const { firstName, lastName, email, userName, password } = req.body;
 
-    // TODO: make sure passwords match when creating a user
-    User.findOne({ email: email }).exec((err, user) => {
-        if (user) { 
-            res.statusCode = 403;
-            res.send('That email has already been registered!');
-        } else {
-            const newUser = new User({
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                userName: userName,
-                password: password
-            });
-        
-            bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(newUser.password, salt, (err, hash) => {
-                    if (err) throw err;
-        
-                    newUser.password = hash;
-                    newUser.save()
-                    .then((value) => {
-                        res.statusCode = 200;
-                        res.send('Account successfully registered!')
-                    }).catch((err) => {
-                        res.statusCode = 500;
-                        res.send('Oops! Something went wrong.')
-                    });
-                });
-            });
-        }
-    })
+    try {
+        const user = await User.create({ firstName, lastName, email, userName, password });
+        const token = createToken(user._id);
+        res.cookie('jwt', token, { http: true, maxAge: maxAge * 1000});
+        res.status(201).json({ user: user._id });
+    } catch (err) {
+        const errors = handleErrors(err);
+        res.status(400).json({ errors })
+    }
 });
 
 router.post('/login', (req, res, next) => {
