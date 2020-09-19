@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const { requireAuth } = require('./middleware/authMiddleware');
 const morgan = require('morgan');
 const dotenv = require('dotenv').config();
 
@@ -18,11 +19,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
-app.use((req, res, next) => {
-    res.locals.path = req.path;
+// Routes
+app.use('/', userRoutes);
+app.use('/tickets', requireAuth, (req, res, next) => {
+    app.use(ticketRoutes);
     next();
 });
-
-app.use('/', userRoutes);
-app.use('/tickets', ticketRoutes);
