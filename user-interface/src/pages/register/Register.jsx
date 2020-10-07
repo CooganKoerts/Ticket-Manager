@@ -27,6 +27,17 @@ const Register = ({ handleSubmit }) => {
                 </div>
             </div>
             <div>
+                <label>Username</label>
+                <div>
+                    <Field
+                        name="userName"
+                        component="input"
+                        type="text"
+                        placeholder="Username"
+                    />
+                </div>
+            </div>
+            <div>
                 <label>Email</label>
                 <div>
                     <Field
@@ -41,7 +52,7 @@ const Register = ({ handleSubmit }) => {
                 <label>Password</label>
                 <div>
                     <Field
-                        name="Password"
+                        name="password"
                         component="input"
                         type="text"
                         placeholder="Password"

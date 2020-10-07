@@ -9,13 +9,14 @@ const router = express.Router();
 
 router.post('/register', async (req, res) => {
     const { firstName, lastName, email, userName, password } = req.body;
-
+    console.log('/register')
     try {
         const user = await User.create({ firstName, lastName, email, userName, password });
         const token = createToken(user._id);
         res.cookie('access-validation-id', token, { http: true, maxAge: TOKEN_MAX_AGE * 1000});
         res.status(201).json({ user: user._id });
     } catch (err) {
+        console.log('/register Error')
         const errors = handleErrors(err);
         res.status(400).json({ errors })
     }
