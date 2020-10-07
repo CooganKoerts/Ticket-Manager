@@ -15,7 +15,7 @@ const dbURI = process.env.DB_URI;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => app.listen(5000))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(`mongoDB: ${err}`));
 
 app.use(cors());
 app.use(bodyParser.json());
