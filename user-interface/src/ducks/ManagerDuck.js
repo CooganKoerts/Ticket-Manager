@@ -6,13 +6,12 @@ export const ManagerDuck = new Duck({
     types: ['LOAD_USER'],
     initialState: {},
     reducer: (state, action, { types }) => {
-        console.log(action);
         switch(action.type) {
             case types.LOAD_USER: 
-                console.log('LOAD_USER');
                 return {
                     ...state,
-                    user: action.user    
+                    "access-validation-id": action.data["access-validation-id"],
+                    user: action.data.user    
                 }
             default: return state;
         }
@@ -21,7 +20,7 @@ export const ManagerDuck = new Duck({
         root: state => state
     },
     creators: (duck) => ({
-        loadUser: (user) => ({ type: duck.types.LOAD_USER, user: user })
+        loadUser: (data) => ({ type: duck.types.LOAD_USER, data: data })
     }),
 });
 

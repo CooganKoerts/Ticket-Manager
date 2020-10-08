@@ -12,11 +12,9 @@ export const getTickets = async () => {
 
 export const registerUser = (user) => (dispatch) => {
     // TODO set up .env-cmdrc and get env variable
-    console.log('REGISTER USER');
 
-    return axios.post('http://localhost:5000/register', user)
+    return axios.post('http://localhost:5000/register', user, { headers: { 'Set-Cookie': '' }})
     .then((response) => {
-        console.log(response);
         const { data } = response;
         dispatch(loadUser(data));
     })

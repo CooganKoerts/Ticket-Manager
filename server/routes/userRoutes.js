@@ -16,8 +16,7 @@ router.post('/register', async (req, res) => {
         const { _id } = await User.create({ firstname, lastname, email, username, password });
         const token = createToken(_id);
         console.log(`${path}: token created successfully`);
-        res.cookie('access-validation-id', token, { http: true, maxAge: TOKEN_MAX_AGE * 1000});
-        res.status(201).json({ id: _id, firstname, lastname, username, email });
+        res.status(201).json({ 'access-validation-id': token, user: { id: _id, firstname, lastname, username, email }});
     } catch (err) {
         console.log(`${path} Error: ${err}`)
         const errors = handleErrors(err);
@@ -34,8 +33,7 @@ router.post('/login', async (req, res, next) => {
         const { _id, firstname, lastname, username, email } = await User.login(email, password);
         const token = createToken(user._id);
         console.log(`${path}: token created successfully`);
-        res.cookie('access-validation-id', token, { httpOnly: true, maxAge: TOKEN_MAX_AGE * 1000 });
-        res.status(200).json({ id: _id, firstname, lastname, username, email });
+        res.status(200).json({ 'access-validation-id': token, user: { id: _id, firstname, lastname, username, email }});
     } catch (err) {
         console.log(`${path} Error: ${err}`)
         const errors = handleErrors(err);

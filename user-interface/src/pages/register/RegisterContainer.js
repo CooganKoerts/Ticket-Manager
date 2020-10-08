@@ -7,7 +7,6 @@ import { registerUser } from '../../helpers/Api';
 const handleSubmit = (values, dispatch) => {
     new Promise((resolve, reject) => {
         if (values) {
-            console.log('Values Exist!')
             dispatch(registerUser(values));
             resolve(true);
         }
@@ -16,7 +15,6 @@ const handleSubmit = (values, dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         state: state.data
     }
