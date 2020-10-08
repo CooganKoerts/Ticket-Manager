@@ -8,7 +8,7 @@ const Register = ({ handleSubmit }) => {
                 <label>First Name</label>
                 <div>
                     <Field
-                        name="firstName"
+                        name="firstname"
                         component="input"
                         type="text"
                         placeholder="First Name"
@@ -19,7 +19,7 @@ const Register = ({ handleSubmit }) => {
                 <label>Last Name</label>
                 <div>
                     <Field
-                        name="lastName"
+                        name="lastname"
                         component="input"
                         type="text"
                         placeholder="Last Name"
@@ -30,7 +30,7 @@ const Register = ({ handleSubmit }) => {
                 <label>Username</label>
                 <div>
                     <Field
-                        name="userName"
+                        name="username"
                         component="input"
                         type="text"
                         placeholder="Username"
