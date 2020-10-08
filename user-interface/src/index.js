@@ -3,7 +3,8 @@ import { Provider } from 'react-redux'
 import { reducer as formReducer } from 'redux-form';
 import ManagerDuck from './ducks/ManagerDuck';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import App from './App';
 
 const reducers = {
@@ -13,7 +14,7 @@ const reducers = {
 
 const reducer = combineReducers(reducers);
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
