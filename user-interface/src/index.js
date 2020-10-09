@@ -1,16 +1,17 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import { reducer as formReducer } from 'redux-form';
-import ManagerDuck from './ducks/ManagerDuck';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { ManagerDuck } from './ducks/ManagerDuck';
 import App from './App';
 
 const reducers = {
   data: ManagerDuck.reducer,
-  form: formReducer
-}
+  form: formReducer,
+};
 
 const reducer = combineReducers(reducers);
 
@@ -22,5 +23,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
