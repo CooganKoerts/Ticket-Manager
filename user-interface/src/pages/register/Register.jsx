@@ -4,11 +4,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 
+import './Register.css'
+
 const Register = ({ handleSubmit }) => (
-  <form onSubmit={handleSubmit}>
-    <div>
-      <label>First Name</label>
-      <div id="firstname">
+  <div className="register">
+    <form className="form" onSubmit={handleSubmit}>
+      <div className="form-item">
+        <label>First Name:</label>
         <Field
           name="firstname"
           component="input"
@@ -16,10 +18,8 @@ const Register = ({ handleSubmit }) => (
           placeholder="First Name"
         />
       </div>
-    </div>
-    <div>
-      <label>Last Name</label>
-      <div>
+      <div className="form-item">
+        <label>Last Name:</label>
         <Field
           name="lastname"
           component="input"
@@ -27,10 +27,8 @@ const Register = ({ handleSubmit }) => (
           placeholder="Last Name"
         />
       </div>
-    </div>
-    <div>
-      <label>Username</label>
-      <div>
+      <div className="form-item">
+        <label>Username:</label>
         <Field
           name="username"
           component="input"
@@ -38,10 +36,8 @@ const Register = ({ handleSubmit }) => (
           placeholder="Username"
         />
       </div>
-    </div>
-    <div>
-      <label>Email</label>
-      <div>
+      <div className="form-item">
+        <label>Email:</label>
         <Field
           name="email"
           component="input"
@@ -49,10 +45,8 @@ const Register = ({ handleSubmit }) => (
           placeholder="Email"
         />
       </div>
-    </div>
-    <div>
-      <label>Password</label>
-      <div>
+      <div className="form-item">
+        <label>Password:</label>
         <Field
           name="password"
           component="input"
@@ -60,9 +54,9 @@ const Register = ({ handleSubmit }) => (
           placeholder="Password"
         />
       </div>
-    </div>
-    <button type="submit" onSubmit={handleSubmit}>Submit</button>
-  </form>
+      <button className="submit" type="submit" onSubmit={handleSubmit}>Submit</button>
+    </form>
+  </div>
 );
 
 Register.propTypes = {

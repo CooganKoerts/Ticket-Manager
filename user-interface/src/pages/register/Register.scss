@@ -1,0 +1,22 @@
+.register {
+    display: flex;
+
+    .form {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .form-item {
+        display: grid;
+        width: auto;
+        grid-template-columns: 2fr 3fr;
+
+        + .form-item {
+            margin-top: 2.5%;
+        }
+    }
+
+    .submit {
+        margin-top: 5%;
+    }
+}
