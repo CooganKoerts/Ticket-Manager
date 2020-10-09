@@ -5,7 +5,7 @@ import { reducer as formReducer } from 'redux-form';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { ManagerDuck } from './ducks/ManagerDuck';
+import ManagerDuck from './ducks/ManagerDuck';
 import App from './App';
 
 const reducers = {
