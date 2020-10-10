@@ -57,7 +57,18 @@ const Register = ({ handleSubmit }) => (
           placeholder="Password"
         />
       </div>
-      <Button color="primary" className="submit" type="submit" onSubmit={handleSubmit}>Submit</Button>
+      <Button 
+        color="primary"
+        className="submit"
+        type="submit"
+        onSubmit={handleSubmit}
+        classes={{
+          root: "btn-submit",
+          textPrimary: "btn-text"
+        }}
+      >
+        Submit
+      </Button>
     </form>
   </div>
 );

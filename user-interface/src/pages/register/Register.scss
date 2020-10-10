@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .register {
     display: flex;
 
@@ -13,7 +15,16 @@
         }
     }
 
-    .submit {
+    .btn-submit {
         margin-top: 5%;
+        background-color: $primary;
+
+        &:hover {
+            background-color: $primary-light;
+        }
+    }
+
+    .btn-text {
+        color: $white;
     }
 }
