@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // TODO: remove this eslint or find a new way to go about it.
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Field } from 'redux-form';
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Field } from 'redux-form';
 
 import { CustomTextField } from '../../components';
 
-import './Register.css'
+import './Register.css';
 
 const Register = ({ handleSubmit }) => (
   <div className="register">
@@ -57,7 +57,7 @@ const Register = ({ handleSubmit }) => (
           placeholder="Password"
         />
       </div>
-      <Button variant="container" color="primary" className="submit" type="submit" onSubmit={handleSubmit}>Submit</Button>
+      <Button color="primary" className="submit" type="submit" onSubmit={handleSubmit}>Submit</Button>
     </form>
   </div>
 );

@@ -18,8 +18,27 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "extra-rules",
+        "react",
+        "unicorn"
     ],
     "rules": {
+        "strict": 0,
+        "curly": [
+            "error",
+            "all"
+        ],
+        "import/order": [
+            "error",
+            {
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": false
+                }
+            }
+        ],
+        "no-alert": "error",
+        "no-console": "error"
     }
 }

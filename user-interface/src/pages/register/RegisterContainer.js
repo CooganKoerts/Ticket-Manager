@@ -2,8 +2,10 @@
 // TODO: remove this eslint or find a new way to go about it.
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import Register from './Register';
+
 import { registerUser } from '../../helpers/Api';
+
+import Register from './Register';
 
 const handleSubmit = (values, dispatch) => {
   new Promise((resolve, reject) => {
