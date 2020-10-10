@@ -3,6 +3,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
+import Button from '@material-ui/core/Button';
+
+import { CustomTextField } from '../../components';
 
 import './Register.css'
 
@@ -10,51 +13,51 @@ const Register = ({ handleSubmit }) => (
   <div className="register">
     <form className="form" onSubmit={handleSubmit}>
       <div className="form-item">
-        <label>First Name:</label>
         <Field
           name="firstname"
-          component="input"
+          component={CustomTextField}
+          label="Firstname"
           type="text"
           placeholder="First Name"
         />
       </div>
       <div className="form-item">
-        <label>Last Name:</label>
         <Field
           name="lastname"
-          component="input"
+          component={CustomTextField}
+          label="Lastname"
           type="text"
           placeholder="Last Name"
         />
       </div>
       <div className="form-item">
-        <label>Username:</label>
         <Field
           name="username"
-          component="input"
+          component={CustomTextField}
+          label="Username"
           type="text"
           placeholder="Username"
         />
       </div>
       <div className="form-item">
-        <label>Email:</label>
         <Field
           name="email"
-          component="input"
+          component={CustomTextField}
+          label="Email"
           type="text"
           placeholder="Email"
         />
       </div>
       <div className="form-item">
-        <label>Password:</label>
         <Field
           name="password"
-          component="input"
+          component={CustomTextField}
+          label="Password"
           type="text"
           placeholder="Password"
         />
       </div>
-      <button className="submit" type="submit" onSubmit={handleSubmit}>Submit</button>
+      <Button variant="container" color="primary" className="submit" type="submit" onSubmit={handleSubmit}>Submit</Button>
     </form>
   </div>
 );
