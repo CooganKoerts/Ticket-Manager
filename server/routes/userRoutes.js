@@ -30,10 +30,19 @@ router.post('/login', async (req, res, next) => {
     console.log(path);
 
     try {
-        const { _id, firstname, lastname, username, email } = await User.login(email, password);
+        const user = await User.login(email, password);
         const token = createToken(user._id);
         console.log(`${path}: token created successfully`);
-        res.status(200).json({ 'access-validation-id': token, user: { id: _id, firstname, lastname, username, email }});
+        res.status(200).json({ 
+            'access-validation-id': token,
+            user: { 
+                id: user._id, 
+                firstname: user.firstname,
+                lastname: user.lastname,
+                username: user.username,
+                email: user.email, 
+            }
+        });
     } catch (err) {
         console.log(`${path} Error: ${err}`)
         const errors = handleErrors(err);
