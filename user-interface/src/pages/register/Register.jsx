@@ -57,7 +57,7 @@ const Register = ({ handleSubmit }) => (
           placeholder="Password"
         />
       </div>
-      <Button 
+      <Button
         color="primary"
         className="submit"
         type="submit"

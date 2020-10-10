@@ -4,4 +4,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 450px;
+        width: 275px;
+    }
 }

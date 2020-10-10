@@ -8,15 +8,12 @@
         flex-flow: column;
     }
 
-    .form-item {
-
-        + .form-item {
-            margin-top: 2.5%;
-        }
+    .form-item + .form-item {
+        margin-top: 2.5%;
     }
 
     .btn-submit {
-        margin-top: 5%;
+        margin-top: 20%;
         background-color: $primary;
 
         &:hover {
