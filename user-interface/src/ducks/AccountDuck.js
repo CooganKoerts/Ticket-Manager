@@ -1,6 +1,6 @@
 import Duck from 'extensible-duck';
 
-const ManagerDuck = new Duck({
+const AccountDuck = new Duck({
   nameSpace: 'ticket-manager',
   store: 'Data',
   types: ['LOAD_USER'],
@@ -24,4 +24,4 @@ const ManagerDuck = new Duck({
   }),
 });
 
-export default ManagerDuck;
+export default AccountDuck;

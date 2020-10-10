@@ -7,14 +7,14 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 
-import ManagerDuck from './ducks/ManagerDuck';
+import AccountDuck from './ducks/AccountDuck';
 import Issues from './pages/issues/Issues';
 import LandingPage from './pages/landingPage/LandingPage';
 import NotFound from './pages/not-found/NotFound';
 import Projects from './pages/projects/Projects';
 
 const reducers = {
-  data: ManagerDuck.reducer,
+  data: AccountDuck.reducer,
   form: formReducer,
 };
 

@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import ManagerDuck from '../ducks/ManagerDuck';
+import AccountDuck from '../ducks/AccountDuck';
 
-const { loadUser } = ManagerDuck.creators;
+const { loadUser } = AccountDuck.creators;
 
 export const getTickets = async () => axios.get('http://localhost:5000/tickets')
   .then((result) => result)
