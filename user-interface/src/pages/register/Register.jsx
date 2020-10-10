@@ -61,8 +61,8 @@ const Register = ({ handleSubmit }) => (
         type="submit"
         onSubmit={handleSubmit}
         classes={{
-          root: "btn-submit",
-          textPrimary: "btn-text"
+          root: 'btn-submit',
+          textPrimary: 'btn-text',
         }}
       >
         Submit

@@ -21,4 +21,4 @@ export const loginUser = (user) => (dispatch) => axios.post('http://localhost:50
     console.log(data);
     dispatch(loadUser(data));
   })
-  .catch((err) => err); 
+  .catch((err) => err);
