@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import { CustomTabPanel } from '../../components';
-import Login from '../login/LoginContainer';
-import Register from '../register/RegisterContainer';
+import Login from '../../account/login/LoginContainer';
+import Register from '../../account/register/RegisterContainer';
 
 import './LandingPage.css';
 
