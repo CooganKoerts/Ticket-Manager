@@ -18,7 +18,7 @@ const handleSubmit = (values, dispatch) => {
 };
 
 const mapStateToProps = (state) => ({
-  state: state.data,
+  state: state.account,
 });
 
 export default reduxForm({

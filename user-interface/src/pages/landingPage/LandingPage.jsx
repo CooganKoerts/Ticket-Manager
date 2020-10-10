@@ -5,9 +5,9 @@ import Classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import { CustomTabPanel } from '../../components';
 import Login from '../../account/login/LoginContainer';
 import Register from '../../account/register/RegisterContainer';
+import { CustomTabPanel } from '../../components';
 
 import './LandingPage.css';
 

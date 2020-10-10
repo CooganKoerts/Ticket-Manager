@@ -2,7 +2,7 @@ import Duck from 'extensible-duck';
 
 const AccountDuck = new Duck({
   nameSpace: 'ticket-manager',
-  store: 'Data',
+  store: 'Account',
   types: ['LOAD_USER'],
   initialState: {
     isUserLoggedIn: false,
