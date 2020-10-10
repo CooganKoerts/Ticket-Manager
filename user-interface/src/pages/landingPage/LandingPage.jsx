@@ -1,7 +1,8 @@
 import Card from '@material-ui/core/Card';
-import Classnames from 'classnames';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
+import Classnames from 'classnames';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import { CustomTabPanel } from '../../components';
@@ -10,16 +11,17 @@ import Register from '../register/RegisterContainer';
 
 import './LandingPage.css';
 
-const LandingPage = () => {
+const LandingPage = ({ isUserLoggedIn }) => {
   const [tab, setTab] = useState('LOGIN_TAB');
-  const loginTabClassname = Classnames({ 'tab-selected': tab === 'LOGIN_TAB'});
-  const registerTabClassname = Classnames({ 'tab-selected': tab === 'REGISTER_TAB'});
+  const loginTabClassname = Classnames({ 'tab-selected': tab === 'LOGIN_TAB' });
+  const registerTabClassname = Classnames({ 'tab-selected': tab === 'REGISTER_TAB' });
   const handleChange = (event, newTabValue) => {
     setTab(newTabValue);
   };
 
   return (
     <div className="landing-page">
+      { !isUserLoggedIn && (
       <Card
         raised
         classes={{
@@ -35,13 +37,13 @@ const LandingPage = () => {
             indicator: 'tabs-indicator',
           }}
         >
-          <Tab 
+          <Tab
             id={0}
             value="LOGIN_TAB"
             label="Login"
             classes={{
               root: loginTabClassname,
-            }}  
+            }}
           />
           <Tab
             id={1}
@@ -59,8 +61,17 @@ const LandingPage = () => {
           <Register />
         </CustomTabPanel>
       </Card>
+      )}
     </div>
   );
+};
+
+LandingPage.propTypes = {
+  isUserLoggedIn: PropTypes.bool,
+};
+
+LandingPage.defaultProps = {
+  isUserLoggedIn: false,
 };
 
 export default LandingPage;

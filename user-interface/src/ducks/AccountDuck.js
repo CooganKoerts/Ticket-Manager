@@ -4,7 +4,9 @@ const AccountDuck = new Duck({
   nameSpace: 'ticket-manager',
   store: 'Data',
   types: ['LOAD_USER'],
-  initialState: {},
+  initialState: {
+    isUserLoggedIn: false,
+  },
   reducer: (state, action, { types }) => {
     switch (action.type) {
       case types.LOAD_USER:
@@ -12,6 +14,7 @@ const AccountDuck = new Duck({
           ...state,
           'access-validation-id': action.data['access-validation-id'],
           user: action.data.user,
+          isUserLoggedIn: true,
         };
       default: return state;
     }

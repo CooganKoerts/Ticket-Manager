@@ -18,7 +18,6 @@ export const registerUser = (user) => (dispatch) => axios.post('http://localhost
 export const loginUser = (user) => (dispatch) => axios.post('http://localhost:5000/login', user)
   .then((response) => {
     const { data } = response;
-    console.log(data);
     dispatch(loadUser(data));
   })
   .catch((err) => err);

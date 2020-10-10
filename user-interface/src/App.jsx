@@ -9,7 +9,7 @@ import thunk from 'redux-thunk';
 
 import AccountDuck from './ducks/AccountDuck';
 import Issues from './pages/issues/Issues';
-import LandingPage from './pages/landingPage/LandingPage';
+import LandingPage from './pages/landingPage/LandingPageContainer';
 import NotFound from './pages/not-found/NotFound';
 import Projects from './pages/projects/Projects';
 
