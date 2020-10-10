@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.login {
+    display: flex;
+
+    .form {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .form-item + .form-item {
+        margin-top: 2.5%;
+    }
+
+    .btn-submit {
+        margin-top: 20%;
+        background-color: $primary;
+
+        &:hover {
+            background-color: $primary-light;
+        }
+    }
+
+    .btn-text {
+        color: $white;
+    }
+}
