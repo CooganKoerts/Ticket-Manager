@@ -10,13 +10,14 @@ import './LandingPage.css';
 
 const LandingPage = ({ isUserLoggedIn }) => (
   <div className="landing-page">
-    <AppBar className="navbar" position="static">
-      <Toolbar>
-        <span className="navbar-brand">Ticket Manager</span>
-      </Toolbar>
-    </AppBar>
-    { !isUserLoggedIn && (
+    { !isUserLoggedIn ? (
       <AccountAuth />
+    ) : (
+      <AppBar className="navbar" position="static">
+        <Toolbar>
+          <span className="navbar-brand">Ticket Manager</span>
+        </Toolbar>
+      </AppBar>
     )}
   </div>
 );
