@@ -1,70 +1,25 @@
-import Card from '@material-ui/core/Card';
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import Classnames from 'classnames';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Toolar from '@material-ui/core/Toolbar';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 
-import Login from '../../account/login/LoginContainer';
-import Register from '../../account/register/RegisterContainer';
-import { CustomTabPanel } from '../../components';
+import AccountAuth from '../../account/AccountAuth';
 
 import './LandingPage.css';
 
-const LandingPage = ({ isUserLoggedIn }) => {
-  const [tab, setTab] = useState('LOGIN_TAB');
-  const loginTabClassname = Classnames({ 'tab-selected': tab === 'LOGIN_TAB' });
-  const registerTabClassname = Classnames({ 'tab-selected': tab === 'REGISTER_TAB' });
-  const handleChange = (event, newTabValue) => {
-    setTab(newTabValue);
-  };
-
-  return (
-    <div className="landing-page">
-      { !isUserLoggedIn && (
-      <Card
-        raised
-        classes={{
-          root: 'card',
-        }}
-      >
-        <Tabs
-          value={tab}
-          onChange={handleChange}
-          variant="fullWidth"
-          classes={{
-            root: 'tabs-root',
-            indicator: 'tabs-indicator',
-          }}
-        >
-          <Tab
-            id={0}
-            value="LOGIN_TAB"
-            label="Login"
-            classes={{
-              root: loginTabClassname,
-            }}
-          />
-          <Tab
-            id={1}
-            value="REGISTER_TAB"
-            label="Register"
-            classes={{
-              root: registerTabClassname,
-            }}
-          />
-        </Tabs>
-        <CustomTabPanel id="LOGIN_TAB" value={tab}>
-          <Login />
-        </CustomTabPanel>
-        <CustomTabPanel id="REGISTER_TAB" value={tab}>
-          <Register />
-        </CustomTabPanel>
-      </Card>
-      )}
-    </div>
-  );
-};
+const LandingPage = ({ isUserLoggedIn }) => (
+  <div className="landing-page">
+    <AppBar className="navbar" position="static">
+      <Toolbar>
+        <span className="navbar-brand">Ticket Manager</span>
+      </Toolbar>
+    </AppBar>
+    { !isUserLoggedIn && (
+      <AccountAuth />
+    )}
+  </div>
+);
 
 LandingPage.propTypes = {
   isUserLoggedIn: PropTypes.bool,
