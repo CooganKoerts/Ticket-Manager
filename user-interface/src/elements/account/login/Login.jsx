@@ -3,40 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Field } from 'redux-form';
 
-import { CustomTextField } from '../../components';
+import { CustomTextField } from '../../../components';
 
-import './Register.css';
+import './Login.css';
 
-const Register = ({ handleSubmit }) => (
-  <div className="register">
+const Login = ({ handleSubmit }) => (
+  <div className="login">
     <form className="form" onSubmit={handleSubmit}>
-      <div className="form-item">
-        <Field
-          name="firstname"
-          component={CustomTextField}
-          label="Firstname"
-          type="text"
-          placeholder="First Name"
-        />
-      </div>
-      <div className="form-item">
-        <Field
-          name="lastname"
-          component={CustomTextField}
-          label="Lastname"
-          type="text"
-          placeholder="Last Name"
-        />
-      </div>
-      <div className="form-item">
-        <Field
-          name="username"
-          component={CustomTextField}
-          label="Username"
-          type="text"
-          placeholder="Username"
-        />
-      </div>
       <div className="form-item">
         <Field
           name="email"
@@ -71,12 +44,12 @@ const Register = ({ handleSubmit }) => (
   </div>
 );
 
-Register.propTypes = {
+Login.propTypes = {
   handleSubmit: PropTypes.func,
 };
 
-Register.defaultProps = {
+Login.defaultProps = {
   handleSubmit: () => {},
 };
 
-export default Register;
+export default Login;

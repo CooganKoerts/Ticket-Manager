@@ -4,10 +4,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Classnames from 'classnames';
 import React, { useState } from 'react';
 
-import { CustomTabPanel } from '../components';
-
-import Login from './login/LoginContainer';
-import Register from './register/RegisterContainer';
+import { CustomTabPanel } from '../../../components';
+import Login from '../login/LoginContainer';
+import Register from '../register/RegisterContainer';
 
 const AccountAuth = () => {
   const [tab, setTab] = useState('LOGIN_TAB');

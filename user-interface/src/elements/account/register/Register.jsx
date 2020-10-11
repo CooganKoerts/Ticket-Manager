@@ -5,11 +5,38 @@ import { Field } from 'redux-form';
 
 import { CustomTextField } from '../../../components';
 
-import './Login.css';
+import './Register.css';
 
-const Login = ({ handleSubmit }) => (
-  <div className="login">
+const Register = ({ handleSubmit }) => (
+  <div className="register">
     <form className="form" onSubmit={handleSubmit}>
+      <div className="form-item">
+        <Field
+          name="firstname"
+          component={CustomTextField}
+          label="Firstname"
+          type="text"
+          placeholder="First Name"
+        />
+      </div>
+      <div className="form-item">
+        <Field
+          name="lastname"
+          component={CustomTextField}
+          label="Lastname"
+          type="text"
+          placeholder="Last Name"
+        />
+      </div>
+      <div className="form-item">
+        <Field
+          name="username"
+          component={CustomTextField}
+          label="Username"
+          type="text"
+          placeholder="Username"
+        />
+      </div>
       <div className="form-item">
         <Field
           name="email"
@@ -44,12 +71,12 @@ const Login = ({ handleSubmit }) => (
   </div>
 );
 
-Login.propTypes = {
+Register.propTypes = {
   handleSubmit: PropTypes.func,
 };
 
-Login.defaultProps = {
+Register.defaultProps = {
   handleSubmit: () => {},
 };
 
-export default Login;
+export default Register;

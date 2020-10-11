@@ -3,14 +3,14 @@
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
-import { loginUser } from '../../helpers/Api';
+import { registerUser } from '../../../helpers/Api';
 
-import Login from './Login';
+import Register from './Register';
 
 const handleSubmit = (values, dispatch) => {
   new Promise((resolve, reject) => {
     if (values) {
-      dispatch(loginUser(values));
+      dispatch(registerUser(values));
       resolve(true);
     }
     reject();
@@ -22,6 +22,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default reduxForm({
-  form: 'login',
+  form: 'registration',
   onSubmit: handleSubmit,
-})(connect(mapStateToProps)(Login));
+})(connect(mapStateToProps)(Register));

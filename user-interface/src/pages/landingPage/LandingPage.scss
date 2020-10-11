@@ -7,12 +7,27 @@
     flex-flow: column;
     align-items: center;
 
+    .account-icon {
+        fill: $white
+    }
+
+    .btn-icon {
+        margin-left: 30%;
+        height: 50px;
+        width: 50px;
+    }
+
     .navbar {
         display: flex;
         justify-content: center;
         background-color: $primary;
         height: 10%;
         width: 100vw;
+    }
+
+    .navbar-toolbar {
+        display: grid;
+        grid-template-columns: 10fr 1fr;
     }
 
     .navbar-brand {
