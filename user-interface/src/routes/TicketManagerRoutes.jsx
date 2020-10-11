@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 
 import { ProtectedRoute } from '../components';
+import AccountInfo from '../pages/account/AccountInfoContainer';
 import Issues from '../pages/issues/Issues';
 import LandingPage from '../pages/landingPage/LandingPageContainer';
 import NotFound from '../pages/not-found/NotFound';
@@ -15,6 +16,7 @@ const TicketManagerRoutes = () => (
       <Route exact path="/" component={LandingPage} />
       <ProtectedRoute path="/issues" component={Issues} />
       <ProtectedRoute path="/projects" component={Projects} />
+      <ProtectedRoute path="/account" component={AccountInfo} />
       <ProtectedRoute component={NotFound} />
     </Switch>
   </Router>

@@ -2,11 +2,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-const ProtectedRoute = ({ isUserLoggedIn, component }) => (isUserLoggedIn ? (
-  component
-) : (
-  <Redirect to={{ pathname: '/' }} />
-));
+const ProtectedRoute = ({ isUserLoggedIn, component }) => {
+  const Component = component;
+
+  return (isUserLoggedIn ? (
+    <Component />
+  ) : (
+    <Redirect to={{ pathname: '/' }} />
+  ));
+};
 
 ProtectedRoute.propTypes = {
   isUserLoggedIn: PropTypes.bool,
