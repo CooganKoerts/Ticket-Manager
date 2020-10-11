@@ -1,6 +1,12 @@
-.account-card {
+.account-info {
     display: flex;
-    flex-flow: column;
-    height: 200px;
-    width: 200px;
+    align-content: center;
+    justify-content: center;
+
+    .account-card {
+        display: flex;
+        flex-flow: column;
+        margin-top: 12.5%;
+        padding: 20px;
+    }
 }
