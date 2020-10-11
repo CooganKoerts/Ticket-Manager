@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.root.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: $primary;
+    height: 10%;
+    width: 100vw;
+
+    .toolbar {
+        display: grid;
+        grid-template-columns: 10fr 1fr;
+    }
+    
+    .brand {
+        font-family: $brand-text;
+        font-size: 25px;
+        font-weight: bold;
+        margin-left: 5%;
+    }
+
+    .account-icon {
+        fill: $white
+    }
+
+    .btn-icon {
+        margin-left: 30%;
+        height: 50px;
+        width: 50px;
+    }
+}

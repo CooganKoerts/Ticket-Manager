@@ -8,6 +8,8 @@ import { CustomTabPanel } from '../../../components';
 import Login from '../login/LoginContainer';
 import Register from '../register/RegisterContainer';
 
+import './AccountAuth.css';
+
 const AccountAuth = () => {
   const [tab, setTab] = useState('LOGIN_TAB');
   const loginTabClassname = Classnames({ 'tab-selected': tab === 'LOGIN_TAB' });
@@ -20,7 +22,7 @@ const AccountAuth = () => {
     <Card
       raised
       classes={{
-        root: 'card',
+        root: 'authorization-card',
       }}
     >
       <Tabs
