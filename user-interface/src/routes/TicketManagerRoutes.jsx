@@ -4,11 +4,7 @@ import {
 } from 'react-router-dom';
 
 import { ProtectedRoute } from '../components';
-import AccountInfo from '../pages/account/AccountInfoContainer';
-import Issues from '../pages/issues/Issues';
-import LandingPage from '../pages/landingPage/LandingPageContainer';
-import NotFound from '../pages/not-found/NotFound';
-import Projects from '../pages/projects/Projects';
+import { AccountInfo, Issues, LandingPage, NotFound, Projects } from '../pages';
 
 const TicketManagerRoutes = () => (
   <Router>
