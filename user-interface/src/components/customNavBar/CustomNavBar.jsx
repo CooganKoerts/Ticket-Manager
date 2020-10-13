@@ -13,7 +13,7 @@ const CustomNavBar = () => {
   return (
     <AppBar className="root navbar" position="static">
       <Toolbar className="toolbar">
-        <span className="brand">Ticket Manager</span>
+        <span className="brand" onClick={() => history.push('/')}>Ticket Manager</span>
         <IconButton
           onClick={() => history.push('/account')}
           classes={{
