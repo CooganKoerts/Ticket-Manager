@@ -1,14 +1,14 @@
 const express = require('express');
-const Ticket = require('../models/ticket');
+const Project = require('../models/project');
 
 const router = express.Router();
 
-const path = '/ticket';
+const path = '/project'
 
-router.get('/ticket', (req, res) => {
+router.get('/', (req, res) => {
     console.log(`${path} GET`);
 
-    Ticket.find().sort({ createdAt: -1 })
+    Project.find().sort({ createdAt: -1 })
         .then((result) => {
             res.send(result);
         })
@@ -18,11 +18,11 @@ router.get('/ticket', (req, res) => {
         })
 });
 
-router.post('/ticket', (req, res) => {
-    const ticket = new Ticket(req.body);
+router.post('/', (req, res) => {
+    const project = new Ticket(req.body);
     console.log(`${path} POST`);
 
-    ticket.save()
+    project.save()
         .then((result) => {
             res.send(result);
         })
@@ -32,11 +32,11 @@ router.post('/ticket', (req, res) => {
         })
 });
 
-router.get('/ticket/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const id = req.params.id;
     console.log(`${path}/:id GET`)
 
-    Ticket.findById(id)
+    Project.findById(id)
         .then(result => {
             res.send(result);
         })
@@ -46,19 +46,17 @@ router.get('/ticket/:id', (req, res) => {
         });
 });
 
-router.delete('/ticket/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const id = req.params.id;
     console.log(`${path}/:id DELETE`)
 
-    Ticket.findByIdAndDelete(id)
+    Project.findByIdAndDelete(id)
         .then(result => {
             res.statusCode = 200;
-            res.send('Ticket successfully deleted!');
+            res.send('Project successfully deleted!');
         })
         .catch(err => {
             // TODO create error response & code
             console.log(`${path}/:id DELETE Error: ${err}`);
         });
 });
-
-module.exports = router;

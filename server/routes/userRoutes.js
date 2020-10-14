@@ -13,10 +13,20 @@ router.post('/register', async (req, res) => {
     console.log(path);
 
     try {
-        const { _id } = await User.create({ firstname, lastname, email, username, password });
-        const token = createToken(_id);
+        const user = await User.create({ firstname, lastname, email, username, password });
+        const token = createToken(user._id);
+        console.log(token);
         console.log(`${path}: token created successfully`);
-        res.status(201).json({ 'access-validation-id': token, user: { id: _id, firstname, lastname, username, email }});
+        res.status(201).json({
+            'access-validation-id': token,
+            user: { 
+                id: user._id, 
+                firstname: user.firstname,
+                lastname: user.lastname,
+                username: user.username,
+                email: user.email, 
+            }
+        });
     } catch (err) {
         console.log(`${path} Error: ${err}`)
         const errors = handleErrors(err);

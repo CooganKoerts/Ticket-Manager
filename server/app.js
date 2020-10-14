@@ -6,8 +6,9 @@ const { requireAuth } = require('./middleware/authMiddleware');
 const morgan = require('morgan');
 const dotenv = require('dotenv').config();
 
-const ticketRoutes = require('./routes/ticketRoutes');
 const userRoutes = require('./routes/userRoutes');
+const ticketRoutes = require('./routes/ticketRoutes');
+const projectRoutes = require('./routes/projectRoutes');
 
 const app = express();
 
@@ -23,7 +24,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.use('/', userRoutes);
-app.use('/tickets', requireAuth, (req, res, next) => {
+app.use('/ticket', requireAuth, (req, res, next) => {
     app.use(ticketRoutes);
     next();
 });
+app.use('/project', requireAuth, (req, res, next) => {
+    app.use(projectRoutes);
+    next();
+})

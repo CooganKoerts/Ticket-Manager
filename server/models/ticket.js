@@ -13,6 +13,14 @@ const ticketSchema = new Schema({
     body: {
         type: String,
         required: true,
+    },
+    author: {
+        type: String,
+        required: true,
+    },
+    projectId: {
+        type: String,
+        required: true,
     }
 }, { timestamps: true });
 
