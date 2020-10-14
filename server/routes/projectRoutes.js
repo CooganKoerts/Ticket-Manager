@@ -5,7 +5,7 @@ const router = express.Router();
 
 const path = '/project'
 
-router.get('/', (req, res) => {
+router.get('/project', (req, res) => {
     console.log(`${path} GET`);
 
     Project.find().sort({ createdAt: -1 })
@@ -18,8 +18,8 @@ router.get('/', (req, res) => {
         })
 });
 
-router.post('/', (req, res) => {
-    const project = new Ticket(req.body);
+router.post('/project', (req, res) => {
+    const project = new Project(req.body);
     console.log(`${path} POST`);
 
     project.save()
@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
         })
 });
 
-router.get('/:id', (req, res) => {
+router.get('/project/:id', (req, res) => {
     const id = req.params.id;
     console.log(`${path}/:id GET`)
 
@@ -46,7 +46,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/project/:id', (req, res) => {
     const id = req.params.id;
     console.log(`${path}/:id DELETE`)
 
@@ -60,3 +60,5 @@ router.delete('/:id', (req, res) => {
             console.log(`${path}/:id DELETE Error: ${err}`);
         });
 });
+
+module.exports = router;

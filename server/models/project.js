@@ -6,11 +6,16 @@ const projectSchema = new Schema({
         type: String,
         required: true
     },
-    ticket: {
+    tickets: {
         type: Array,
+        required: false,
         default: [],
     },
     projectManager: {
+        type: String,
+        required: true,
+    },
+    projectManagerId: {
         type: String,
         required: true,
     }
