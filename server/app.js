@@ -24,11 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.use('/', userRoutes);
-app.use('/ticket', requireAuth, (req, res, next) => {
+app.use('/', requireAuth, (req, res, next) => {
     app.use(ticketRoutes);
-    next();
-});
-app.use('/project', requireAuth, (req, res, next) => {
     app.use(projectRoutes);
     next();
-})
+});
