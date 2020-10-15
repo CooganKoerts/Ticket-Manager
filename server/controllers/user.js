@@ -55,4 +55,4 @@ const loginPost = async (req, res) => {
     }
 }
 
-module.exports = { registerPost, loginPost }
+module.exports = { registerPost, loginPost };
