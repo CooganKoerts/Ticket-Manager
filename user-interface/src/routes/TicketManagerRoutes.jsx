@@ -5,7 +5,7 @@ import {
 
 import { ProtectedRoute } from '../components';
 import {
-  AccountInfo, Issues, LandingPage, NotFound, Projects,
+  AccountInfo, Issues, LandingPage, NotFound, MyProjects,
 } from '../pages';
 
 const TicketManagerRoutes = () => (
@@ -13,7 +13,7 @@ const TicketManagerRoutes = () => (
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <ProtectedRoute path="/issues" component={Issues} />
-      <ProtectedRoute path="/projects" component={Projects} />
+      <ProtectedRoute path="/projects" component={MyProjects} />
       <ProtectedRoute path="/account" component={AccountInfo} />
       <ProtectedRoute component={NotFound} />
     </Switch>

@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+
+.my-projects {
+    display: flex;
+    font-family: $brand-text;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    .project-card {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        flex-flow: column;
+        margin-top: 2.5%;
+        padding: 20px;
+
+        +.project-card {
+            margin-top: 2.5%;
+        }
+    }
+
+    .project-title {
+        font-size: 32px;
+        margin: 5% 0;
+    }
+
+    .projects-container {
+        display: flex;
+        flex-flow: column;
+    }
+}
