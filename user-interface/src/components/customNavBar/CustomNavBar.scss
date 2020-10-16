@@ -6,18 +6,23 @@
     background-color: $primary;
     height: 110px;
     width: 100vw;
+    font-family: $brand-text;
 
     .toolbar {
         display: grid;
-        grid-template-columns: 10fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 5fr;
     }
     
     .brand {
-        font-family: $brand-text;
         font-size: 25px;
         font-weight: bold;
         margin-left: 5%;
         cursor: pointer;
+    }
+
+    .my-projects,
+    .my-work {
+        text-align: center;
     }
 
     .account-icon {
@@ -25,7 +30,7 @@
     }
 
     .btn-icon {
-        margin-left: 30%;
+        margin-left: 90%;
         height: 50px;
         width: 50px;
     }

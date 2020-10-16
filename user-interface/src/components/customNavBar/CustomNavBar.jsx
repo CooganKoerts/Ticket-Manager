@@ -1,3 +1,4 @@
+import { Button } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,6 +15,8 @@ const CustomNavBar = () => {
     <AppBar className="root navbar" position="static">
       <Toolbar className="toolbar">
         <span className="brand" onClick={() => history.push('/')}>Ticket Manager</span>
+        <span className="my-projects" onClick={() => history.push('/projects')}>My Projects</span>
+        <span className="my-work" onClick={() => history.push('/issues')}>My Work</span>
         <IconButton
           onClick={() => history.push('/account')}
           classes={{

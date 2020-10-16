@@ -1,5 +1,14 @@
 import React from 'react';
 
-const Projects = () => <div> Projects </div>;
+import { CustomNavBar } from '../../components';
+
+const Projects = ({ isUserLoggedIn }) => {
+  return (
+    <>
+      <CustomNavBar />
+      <div> Projects </div>
+    </>
+  );
+};
 
 export default Projects;

@@ -1,5 +1,14 @@
 import React from 'react';
 
-const Issues = () => <div> Issues </div>;
+import { CustomNavBar } from '../../components';
+
+const Issues = ({ isUserLoggedIn }) => {
+  return (
+    <>
+      <CustomNavBar />
+      <div> Issues </div>
+    </>
+  );
+};
 
 export default Issues;
