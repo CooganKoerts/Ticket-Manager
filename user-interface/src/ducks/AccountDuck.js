@@ -12,8 +12,8 @@ const AccountDuck = new Duck({
       case types.LOAD_USER:
         return {
           ...state,
-          'access-validation-id': action.data['access-validation-id'],
-          user: action.data.user,
+          user: action.user,
+          myProjects: action.myProjects,
           isUserLoggedIn: true,
         };
       default: return state;
@@ -23,7 +23,7 @@ const AccountDuck = new Duck({
     root: (state) => state,
   },
   creators: (duck) => ({
-    loadUser: (data) => ({ type: duck.types.LOAD_USER, data }),
+    loadUser: (user, myProjects) => ({ type: duck.types.LOAD_USER, user, myProjects }),
   }),
 });
 
