@@ -19,9 +19,9 @@ const registerPost = async (req, res) => {
                 firstname: user.firstname,
                 lastname: user.lastname,
                 username: user.username,
-                email: user.email,
-                myProjects: user.myProjects, 
-            }
+                email: user.email, 
+            },
+            myProjects: user.myProjects,
         });
     } catch (err) {
         console.log(`${path} Error: ${err}`)
@@ -47,8 +47,8 @@ const loginPost = async (req, res) => {
                 lastname: user.lastname,
                 username: user.username,
                 email: user.email,
-                myProjects: user.myProjects, 
-            }
+            },
+            myProjects: user.myProjects, 
         });
     } catch (err) {
         console.log(`${path} Error: ${err}`)
