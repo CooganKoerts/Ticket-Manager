@@ -15,11 +15,12 @@ const registerPost = async (req, res) => {
         res.status(201).json({
             'access-validation-id': token,
             user: { 
-                id: user._id, 
+                id: user._id,
                 firstname: user.firstname,
                 lastname: user.lastname,
                 username: user.username,
-                email: user.email, 
+                email: user.email,
+                myProjects: user.myProjects, 
             }
         });
     } catch (err) {
@@ -45,7 +46,8 @@ const loginPost = async (req, res) => {
                 firstname: user.firstname,
                 lastname: user.lastname,
                 username: user.username,
-                email: user.email, 
+                email: user.email,
+                myProjects: user.myProjects, 
             }
         });
     } catch (err) {
@@ -55,17 +57,15 @@ const loginPost = async (req, res) => {
     }
 }
 
-const addProject = async (projectManagerId, projectId) => {
+const addProject = async (projectManagerId, project) => {
     console.log('ADD PROJECT');
 
     try {
         const userUpdated = await User.findByIdAndUpdate(
             projectManagerId, 
             {
-                $push: {
-                    myProjects: {
-                        "projectId": projectId,
-                    },
+                $addToSet: {
+                    myProjects: project,
                 },
             },
             (error, docs) => {

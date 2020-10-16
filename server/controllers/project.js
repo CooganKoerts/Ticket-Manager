@@ -22,7 +22,7 @@ const projectPost = (req, res) => {
 
     project.save()
         .then((result) => {
-            addProject(project.projectManagerId, result._id);
+            addProject(project.projectManagerId, result);
             res.send(result);
         })
         .catch((err) => {
