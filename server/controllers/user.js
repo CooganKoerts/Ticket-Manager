@@ -55,4 +55,35 @@ const loginPost = async (req, res) => {
     }
 }
 
-module.exports = { registerPost, loginPost };
+const addProject = async (projectManagerId, projectId) => {
+    console.log('ADD PROJECT');
+
+    try {
+        const userUpdated = await User.findByIdAndUpdate(
+            projectManagerId, 
+            {
+                $push: {
+                    myProjects: {
+                        "projectId": projectId,
+                    },
+                },
+            },
+            (error, docs) => {
+                if(error) {
+                    console.log(error);
+                } else {
+                    console.log('UPDATED');
+                }
+            }
+        );
+    } catch(err) {
+        console.log(err)
+        throw new Error(err.message);
+    }
+}
+
+module.exports = { 
+    registerPost,
+    loginPost,
+    addProject
+};

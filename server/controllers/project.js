@@ -1,4 +1,5 @@
 const Project = require('../models/project');
+const { addProject } = require('../controllers/user');
 
 const path = '/project';
 
@@ -21,6 +22,7 @@ const projectPost = (req, res) => {
 
     project.save()
         .then((result) => {
+            addProject(project.projectManagerId, result._id);
             res.send(result);
         })
         .catch((err) => {
