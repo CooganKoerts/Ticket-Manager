@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
   console.log(state.account);
   return {
     myProjects: state.account.myProjects,
-  }
+  };
 };
 
 export default connect(mapStateToProps)(MyProjects);

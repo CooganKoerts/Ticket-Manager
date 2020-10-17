@@ -6,13 +6,11 @@ import { CustomNavBar } from '../../components';
 import './MyProjects.css';
 
 const MyProjects = ({ myProjects }) => {
-  const projects = myProjects.map(({ name }) => {
-    return (
-      <Card className="project-card" raised>
-        <span>{ name }</span>
-      </Card>
-    );
-  });
+  const projects = myProjects.map(({ name }) => (
+    <Card className="project-card" raised>
+      <span>{ name }</span>
+    </Card>
+  ));
 
   return (
     <>
