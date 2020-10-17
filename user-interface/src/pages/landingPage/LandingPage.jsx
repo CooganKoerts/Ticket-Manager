@@ -12,7 +12,10 @@ const LandingPage = ({ isUserLoggedIn }) => {
   return (
     <div className={className}>
       { !isUserLoggedIn ? (
-        <AccountAuth />
+        <>
+          <span className="title">Ticket Manager</span>
+          <AccountAuth />
+        </>
       ) : (
         <CustomNavBar />
       )}
