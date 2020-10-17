@@ -10,18 +10,20 @@
 
     .toolbar {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 5fr;
+        grid-template-areas: "a b . c";
+        grid-template-columns: 1fr 1fr 5fr 1fr;
     }
     
     .brand {
+        grid-area: a;
         font-size: 25px;
         font-weight: bold;
         margin-left: 5%;
         cursor: pointer;
     }
 
-    .my-projects,
-    .my-work {
+    .my-projects {
+        grid-area: b;
         text-align: center;
     }
 
@@ -30,7 +32,8 @@
     }
 
     .btn-icon {
-        margin-left: 90%;
+        justify-self: center;
+        grid-area: c;
         height: 50px;
         width: 50px;
     }

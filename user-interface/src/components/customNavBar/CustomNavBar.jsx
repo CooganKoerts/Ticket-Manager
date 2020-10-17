@@ -16,7 +16,7 @@ const CustomNavBar = () => {
       <Toolbar className="toolbar">
         <span className="brand" onClick={() => history.push('/')}>Ticket Manager</span>
         <span className="my-projects" onClick={() => history.push('/projects')}>My Projects</span>
-        <span className="my-work" onClick={() => history.push('/issues')}>My Work</span>
+        {/* <span className="my-work" onClick={() => history.push('/issues')}>My Work</span> */}
         <IconButton
           onClick={() => history.push('/account')}
           classes={{

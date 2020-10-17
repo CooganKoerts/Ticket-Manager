@@ -12,7 +12,7 @@ const TicketManagerRoutes = () => (
   <Router>
     <Switch>
       <Route exact path="/" component={LandingPage} />
-      <ProtectedRoute path="/issues" component={Issues} />
+      {/* <ProtectedRoute path="/issues" component={Issues} /> */}
       <ProtectedRoute path="/projects" component={MyProjects} />
       <ProtectedRoute path="/account" component={AccountInfo} />
       <ProtectedRoute component={NotFound} />
