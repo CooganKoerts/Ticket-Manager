@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import '../../../styles/variables';
 
 .login {
     display: flex;
@@ -15,7 +15,8 @@
 
     .btn-submit {
         margin-top: 20%;
-        background-color: $primary;
+        background: $primary-gradient;
+        //background-color: $primary;
 
         &:hover {
             background-color: $primary-light;

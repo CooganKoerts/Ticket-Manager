@@ -3,15 +3,17 @@
 .root.navbar {
     display: flex;
     justify-content: center;
-    background-color: $primary;
+    background: $primary-gradient;
+    //background: linear-gradient(15deg, $primary, $secondary);
     height: 110px;
     width: 100vw;
     font-family: $brand-text;
 
     .toolbar {
         display: grid;
+        column-gap: 5%;
         grid-template-areas: "a b . c";
-        grid-template-columns: 1fr 1fr 5fr 1fr;
+        grid-template-columns: 2fr 1fr 5fr 1fr;
     }
     
     .brand {
@@ -25,6 +27,7 @@
     .my-projects {
         grid-area: b;
         text-align: center;
+        cursor: pointer;
     }
 
     .account-icon {

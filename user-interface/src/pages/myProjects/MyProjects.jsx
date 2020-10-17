@@ -1,15 +1,18 @@
 import Card from '@material-ui/core/Card';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { CustomNavBar } from '../../components';
 
 import './MyProjects.css';
 
 const MyProjects = ({ myProjects }) => {
-  const projects = myProjects.map(({ name }) => (
-    <Card className="project-card" raised>
-      <span>{ name }</span>
-    </Card>
+  const projects = myProjects.map(({ _id, name }) => (
+      <Card onClick={() => console.log(_id)} className="project-card" raised>
+        <Link to={'/issues/' + _id}>
+          <span>{ name }</span>
+        </Link>
+      </Card>
   ));
 
   return (

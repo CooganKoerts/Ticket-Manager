@@ -1,3 +1,4 @@
+import ClassNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -6,15 +7,18 @@ import AccountAuth from '../../elements/account/authorization/AccountAuth';
 
 import './LandingPage.css';
 
-const LandingPage = ({ isUserLoggedIn }) => (
-  <div className="landing-page">
-    { !isUserLoggedIn ? (
-      <AccountAuth />
-    ) : (
-      <CustomNavBar />
-    )}
-  </div>
-);
+const LandingPage = ({ isUserLoggedIn }) => {
+  const className = ClassNames("landing-page", { "logged-in": isUserLoggedIn });
+  return (
+    <div className={className}>
+      { !isUserLoggedIn ? (
+        <AccountAuth />
+      ) : (
+        <CustomNavBar />
+      )}
+    </div>
+  );
+};
 
 LandingPage.propTypes = {
   isUserLoggedIn: PropTypes.bool,

@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import '../../../styles/variables'; 
 
 .register {
     display: flex;
@@ -15,7 +15,7 @@
 
     .btn-submit {
         margin-top: 20%;
-        background-color: $primary;
+        background: $primary-gradient;
 
         &:hover {
             background-color: $primary-light;

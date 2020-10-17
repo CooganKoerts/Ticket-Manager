@@ -16,7 +16,8 @@
     }
     
     .tab-selected {
-        background-color: $primary;
+        background: $primary-gradient;
+        //background-color: $primary;
         color: $white
     }
 }

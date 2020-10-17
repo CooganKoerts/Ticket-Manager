@@ -1,9 +1,16 @@
-// Theme Colors
-$primary: #1769aa;
-$primary-dark: #104976;
-$primary-light: #4587bb;
-$secondary: #d50000;
+//primary colors
+$primary: #607D8B;
+$primary-dark: #455A64;
+$primary-light: #CFD8DC;
+$primary-text: #212121;
+
+//secondary colors
+$secondary: #05545E;
 $error: #ff9300;
+
+// Gradients
+$primary-gradient: linear-gradient( 109.6deg,  $primary 16%, $secondary 91.1% );
+// $primary-gradient-light: ;
 
 // Generic colors
 $white: #fff;

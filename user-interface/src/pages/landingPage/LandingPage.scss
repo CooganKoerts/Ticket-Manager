@@ -2,8 +2,15 @@
 
 .landing-page {
     width: 100vw;
+    background-size: 100vw 100vh;
+    background-image: url('../../assets/landing-page-background.jpg');
     height: 100vh;
     display: flex;
     flex-flow: column;
     align-items: center;
+
+    &.logged-in {
+        background-size: unset;
+        background-image: unset;
+    }
 }
